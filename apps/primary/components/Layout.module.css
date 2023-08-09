@@ -1,0 +1,35 @@
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.homeLink {
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  margin-left: 16px;
+  color: #000;
+}
+
+.main {
+  padding: 2rem;
+  margin: 0 auto;
+}
