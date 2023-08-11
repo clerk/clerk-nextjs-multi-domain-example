@@ -3,7 +3,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { Layout } from "../components/Layout";
 
-const App = ({ Component, pageProps }: AppProps) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ClerkProvider isSatellite {...pageProps}>
       <Head>
@@ -15,6 +15,4 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Layout>
     </ClerkProvider>
   );
-};
-
-export default App;
+}
