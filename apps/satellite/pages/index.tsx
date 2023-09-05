@@ -1,3 +1,4 @@
+import { useUser } from "@clerk/nextjs";
 import {
   clerkClient,
   getAuth,
@@ -16,8 +17,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
 const HomePage: NextPage = (props) => {
   const [apiUser, setApiUser] = useState<User | null>(null);
-  //@ts-expect-error
-  const ssrUser: User | null = props.__clerk_ssr_state?.user;
+  const { user: ssrUser } = useUser();
 
   useEffect(() => {
     async function getUser() {

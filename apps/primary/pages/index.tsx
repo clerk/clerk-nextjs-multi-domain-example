@@ -6,6 +6,7 @@ import {
   User,
 } from "@clerk/nextjs/server";
 import { GetServerSideProps, NextPage } from "next";
+import { useUser } from "@clerk/nextjs";
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const { userId } = getAuth(req);
@@ -16,8 +17,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
 const HomePage: NextPage = (props) => {
   const [apiUser, setApiUser] = React.useState<User | null>(null);
-  //@ts-expect-error
-  const ssrUser: User | null = props.__clerk_ssr_state?.user;
+  const { user: ssrUser } = useUser();
 
   React.useEffect(() => {
     async function getUser() {
