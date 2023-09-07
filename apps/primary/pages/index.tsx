@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import {
   clerkClient,
   getAuth,
@@ -16,22 +16,21 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 };
 
 const HomePage: NextPage = (props) => {
-  const [apiUser, setApiUser] = React.useState<User | null>(null);
+  const [apiUser, setApiUser] = useState<User | null>(null);
   const { user: ssrUser } = useUser();
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function getUser() {
       const res = await fetch("/api/user");
-      const data = await res.json();
-      if (data.id) {
+      const data: User | null = await res.json();
+      if (data) {
         setApiUser(data);
       }
     }
-    try {
-      getUser();
-    } catch (err) {
-      console.log("GET /api/user", err);
-    }
+
+    getUser().catch((err) => {
+      console.warn("GET /api/user", err);
+    });
   }, []);
 
   return (

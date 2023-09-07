@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const { userId } = getAuth(req);
-
   const user = userId ? await clerkClient.users.getUser(userId) : null;
   return { props: { ...buildClerkProps(req, { user }) } };
 };
@@ -22,16 +21,15 @@ const HomePage: NextPage = (props) => {
   useEffect(() => {
     async function getUser() {
       const res = await fetch("/api/user");
-      const data = await res.json();
-      if (data.id) {
+      const data: User | null = await res.json();
+      if (data) {
         setApiUser(data);
       }
     }
-    try {
-      getUser();
-    } catch (err) {
-      console.log("GET /api/user", err);
-    }
+
+    getUser().catch((err) => {
+      console.warn("GET /api/user", err);
+    });
   }, []);
 
   return (
