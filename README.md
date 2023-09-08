@@ -13,7 +13,7 @@
 This example project shows how to use [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=multi-domain) with [Clerk's multi domain feature](https://clerk.com/docs/advanced-usage/satellite-domains).This repo contains two Next.js applications, one for the primary and one for the satellite domain.
 
 [![chat on Discord](https://img.shields.io/discord/856971667393609759.svg?logo=discord)](https://discord.com/invite/b5rXHjAg7A)
-[![documentation](https://img.shields.io/badge/documentation-clerk-green.svg)](https://docs.clerk.dev)
+[![documentation](https://img.shields.io/badge/documentation-clerk-green.svg)](https://clerk.dev/docs)
 [![twitter](https://img.shields.io/twitter/follow/ClerkDev?style=social)](https://twitter.com/intent/follow?screen_name=ClerkDev)
 
 ---
