@@ -3,7 +3,7 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 import css from "./Layout.module.css";
 
-export default function Layout({ children }) {
+export default function Layout({ children } : { children: React.ReactNode }) {
   return (
     <div className={css.wrapper}>
       <header className={css.header}>
